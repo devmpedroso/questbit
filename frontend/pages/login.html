@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - QuestBit</title>
+
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body>
+    
+    <div class="sl_mother-div">
+        <div class="sl-background">
+            <h1 class="sl-title">QuestBit</h1>
+
+            <p class="sl-paragraph">Faça o seu login!</p>
+
+            <form id="loginForm" class="sl-form" action="http://localhost:3000/auth" method="POST">
+
+                <input class="sl-input" type="email" name="email" id="email" placeholder="E-mail">
+                <input class="sl-input" type="password" name="password" id="password" placeholder="Senha">
+
+                
+
+                <button id="sl_button-login" type="submit">Login</button>
+
+            </form>
+
+            <div class="sl_input-label-stayConnected">
+                <input class="sl_input-stayConnected" type="checkbox" id="stayConnected">
+                <label id="sl_label-stayConnected" class="sl-label" for="stayConnected">Manter-me conectado</label>
+            </div>
+
+            <a id="sl_anchor-forgot-password" class="sl-anchor" href="./recuperar-senha">Esqueci minha senha</a>
+        </div>
+
+        <div class="sl_span-anchor">
+            <span class="sl-span">Não tem uma conta ainda?</span>
+            <a id="sl_anchor-registerNow" class="sl_anchor" href="./signup.html">Cadastre-se agora</a>
+        </div>
+    </div>
+
+    <script src="../js/requisition/login.js"></script>
+</body>
+
+</html>

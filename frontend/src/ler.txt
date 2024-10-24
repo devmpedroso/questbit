@@ -1,0 +1,3 @@
+Aqui temos as nossas páginas em react, mas iremos implementálas após as páginas com html puro, apenas para garantir as páginas prontas.
+
+Ou seja, o react é um bônus, mas a sua configuração já está quase 100% pronta, bastando corrigir a entrega da tela de login

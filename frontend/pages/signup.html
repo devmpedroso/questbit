@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - QuestBit</title>
+
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/signup-login.css">
+</head>
+
+<body>
+
+    <div class="sl_mother-div">
+        <div class="sl-background">
+            <h1 class="sl-title">QuestBit</h1>
+
+            <p class="sl-paragraph">Faça o seu cadastro!</p>
+
+
+            <form id="form" class="sl-form" action="http://localhost:3000/user" method="POST">
+                <input class="sl-input" type="text" name="name" id="sl_input-name" placeholder="Nome">
+                <input class="sl-input" type="email" name="email" id="sl_input-email" placeholder="E-mail">
+                <input class="sl-input" type="password" name="password" id="sl_input-password" placeholder="Senha">
+                <button id="sl_button-register" type="submit">Cadastrar-se</button>
+            </form>
+
+
+        </div>
+
+        <div class="sl_span-anchor">
+            <span class="sl-span">Já possui uma conta?</span>
+            <a id="sl_anchor-registerNow" class="sl_anchor" href="./login.html">Entre agora</a>
+        </div>
+    </div>
+
+    <script src="../js/requisition/signup.js"></script>
+</body>
+
+</html>
