@@ -1,32 +1,52 @@
 /* Lembrando que o estilo do cabeçalho está sendo reutilizado através do style.css, que importa o css da home e consume tudo em um único arquivo. A class do header da home e calendar, são as mesmas */
 
-.c_progress-container {
-    width: 100%;
-    height: 38%;
-    /* padding-top: 35%; */
-    /* position: fixed; position fixed, a lista de tarefas passa por trás dele (defasado, não passa mais) */
-    /* top:15%; */
+/* Container de eventos */
+.event-container {
+    width: 80%;
+    height: 23.8%;
 
-    /* padding-top: 40%; empurra o gráfico de progresso para baixo, por conta do header fixo (empurra também os outros elementos) */
+    margin: auto;
+    margin-top: 32px;
+    margin-bottom: 32px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border: 1px solid #667BC650;
+    border-radius: 12px;
 }
 
-.c_progress-info {
-    width: 200px;
-    height: 200px;
-    border: 1px solid;
-    border-color: #ffffff;
-    border-radius: 50%;
-    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);
-    background-color: #EFE3E3;
+.event-container__event {
+    width: 90%;
+    height: 27%;
+    margin: 12px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-container__event__title-date-desc {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+}
+
+.title-date-desc__title-date {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.title-date-desc__desc {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.event-container__event__hour__hour {
+    color: #667BC6;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .c_show-days {
     width: 90%;
-    height: 27%;
+    height: 30%;
     overflow: hidden;
     margin: auto;
     display: flex;
@@ -36,6 +56,7 @@
     gap: 20px;
 }
 
+/* Nav Bar */
 #container-menu-calendar-item {
     position: relative;
     bottom: 55%;

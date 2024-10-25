@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - QuestBit</title>
+    <title>Calendar - QuestBit</title>
 
     <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="icon" href="../assets/app-icon.svg" type="image/x-icon">
 </head>
 
 <body>
@@ -20,14 +21,23 @@
 
         <div id="h_photo-circle">
             <div id="h-circle">
-                <img id="h-photo" src="../assets/home-assets/person-home.svg" alt="">
+                <img id="h-photo" src="../assets/nav-menu-assets/purple-calendar.svg" alt="">
             </div>
         </div>
     </div>
 
-    <!-- Círculo de progresso -->
-    <div class="c_progress-container">
-        <div class="c_progress-info"></div>
+    <!-- Container de Eventos -->
+    <div class="event-container">
+        <div class="event-container__event">
+            <div class="event-container__event__title-date-desc">
+                <p class="title-date-desc__title-date">Segunda - 12/03</p>
+                <p class="title-date-desc__desc">Ir ao médico (Unimed)</p>
+            </div>
+
+            <div class="event-container__event__hour">
+                <span class="event-container__event__hour__hour">13:30</span>
+            </div>
+        </div>
     </div>
 
     <div class="c_show-days">
