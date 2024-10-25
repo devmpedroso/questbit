@@ -1,5 +1,35 @@
 /* Lembrando que o estilo do cabeçalho está sendo reutilizado através do style.css, que importa o css da home e consume tudo em um único arquivo. A class do header da home e calendar, são as mesmas */
 
+#calendar-header {
+    height: 11.3%;
+    display: flex;
+    justify-content: space-between;
+    padding: 48px;
+    background-color: #667BC6;
+    border-radius: 0px 0px 16px 16px;
+}
+
+#calendar_container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#calendar-page-name {
+    color: white;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+#new-event-anchor {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    text-decoration: none;
+    color: white;
+}
+
 /* Container de eventos */
 .event-container {
     width: 80%;
@@ -11,6 +41,9 @@
 
     border: 1px solid #667BC650;
     border-radius: 12px;
+
+    scrollbar-width: none;
+    overflow-y: auto;
 }
 
 .event-container__event {
@@ -19,6 +52,12 @@
     margin: 12px;
 
     display: flex;
+    flex-direction: column;
+}
+
+.event-container__event__column {
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -30,7 +69,7 @@
 
 .title-date-desc__title-date {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .title-date-desc__desc {
@@ -44,6 +83,13 @@
     font-weight: 500;
 }
 
+.div-row {
+    width: 100%;
+    height: 1px;
+    margin-top: 8px;
+    background-color: #667BC650;
+}
+
 .c_show-days {
     width: 90%;
     height: 30%;
@@ -55,6 +101,8 @@
     position: relative;
     gap: 20px;
 }
+
+
 
 /* Nav Bar */
 #container-menu-calendar-item {
