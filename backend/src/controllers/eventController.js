@@ -1,4 +1,5 @@
 import event from '../models/EventModel.js';
+import { user } from '../models/UserModel.js';
 
 class EventController {
 
@@ -18,9 +19,14 @@ class EventController {
     };
 
     static async criarEvent(req, res) {
+
+        const novoEvento = req.body
+
         try {
-            const novoEvent = await event.create(req.body);
-            res.status(201).json({ message: "Event criado com sucesso", event: novoEvent })
+            const findedUser = await user.findById(novoEvento.user);
+            const eventCompleto = { ...novoEvento, user: { ...findedUser._doc }}
+            const eventCriado = await event.create(eventCompleto);
+            res.status(201).json({ message: "Event criado com sucesso", event: eventCriado })
         }
         catch (erro) {
             res.status(500).json({ message: `${erro.message} - falha na requisição do event` })

@@ -20,13 +20,18 @@ loginForm.addEventListener('submit', async (event) => {
 
         if (res.ok) {
             const result = await res.json();
-            console.log('Login bem sucedido', result);
+            console.log('Login bem-sucedido', result);
+
+            // Armazena o userId no localStorage
+            localStorage.setItem('userId', result.userId);
+
+            // Redireciona para a página principal
             window.location.href = 'home.html';
         } else {
             const errorData = await res.json();
-            console.error('Erro ao fazer login ', errorData.message);
+            console.error('Erro ao fazer login', errorData.message);
         }
     } catch (error) {
-        console.error('Erro na requisição: ', error);
+        console.error('Erro na requisição:', error);
     }
 });

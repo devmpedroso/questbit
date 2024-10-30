@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> QuestBit - Novo Evento </title>
+
+    <link rel="stylesheet" href="../../styles/styles.css">
+</head>
+
+<body>
+    <div id="calendar-header">
+        <div id="calendar_container_new-event-form">
+            <div id="calendar_container_page-name">
+                <p id="calendar-page-name">Crie um novo evento</p>
+            </div>
+        </div>
+        <div id="h_photo-circle">
+            <div id="h-circle">
+                <img id="h-photo" src="../../assets/nav-menu-assets/purple-calendar.svg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="event-form-container-l-one" class="task-event-container-l-one">
+
+        <form id="event-form" class="task-event-form" action="http://localhost:3000/task" method="POST">
+
+            <label for="event-title">Nome do evento</label>
+            <input type="text" id="event-title-input" name="event-title" class="task-event-form-input"
+                placeholder="Ex: Ir ao médico">
+
+            <label for="event-date">Data</label>
+            <input type="date" name="event-date" id="event-date" class="task-event-form-input">
+
+            <div class="task-event-time-div">
+                <div class="hour-container">
+                    <label for="event-initial-time">Horário Inicial</label>
+                    <input type="time" id="event-initial-time-input" name="event-initial-time"
+                        class="task-event-form-input">
+                </div>
+
+                <div class="hour-container">
+                    <label for="event-end-time">Horário Final</label>
+                    <input type="time" id="event-end-time-input" name="event-end-time" class="task-event-form-input">
+                </div>
+
+            </div>
+
+            <label for="event-desc">Descrição</label>
+            <textarea type="text" id="event-desc-input" name="event-desc" class="task-event-form-input"
+                placeholder="Endereço: Rua João Ninguém, 243 - Bahamas. Consulta com o Médico João Alguém."></textarea>
+
+            <button type="submit" id="event-form-button" class="task-event-form-button">Criar Tarefa</button>
+        </form>
+
+    </div>
+
+    <nav class="menu-bar">
+        <div class="container-menu-bar">
+            <div class="container-menu-item">
+                <a href="../home.html">
+                    <img src="../../assets/nav-menu-assets/white-home.svg" alt="">
+                </a>
+            </div>
+
+            <div id="container-menu-calendar-item" class="container-menu-item">
+                <a href="../calendar.html">
+                    <img src="../../assets/nav-menu-assets/purple-calendar.svg" alt="">
+                </a>
+            </div>
+
+            <div class="container-menu-item">
+
+                <a href="../person.html">
+                    <img src="../../assets/nav-menu-assets/white-person.svg" alt="">
+                </a>
+
+            </div>
+
+            <div class="container-menu-item">
+                <a href="../settings.html">
+                    <img src="../../assets/nav-menu-assets/white-settings.svg" alt="">
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+    <script src="../../js/requisition/task-form.js"></script>
+</body>
+
+</html>

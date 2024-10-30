@@ -36,8 +36,8 @@
     height: 23.8%;
 
     margin: auto;
-    margin-top: 32px;
-    margin-bottom: 32px;
+    margin-top: 24px;
+    margin-bottom: 24px;
 
     border: 1px solid #667BC650;
     border-radius: 12px;
@@ -97,9 +97,20 @@
     margin: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     position: relative;
     gap: 20px;
+}
+
+#calendar-day-list {
+    height: 70% !important;
+    
+}
+
+.task-card__task-name {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    text-align: center;
 }
 
 

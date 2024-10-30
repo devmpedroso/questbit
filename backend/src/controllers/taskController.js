@@ -1,4 +1,5 @@
-import { task } from '../models/TaskModel.js';
+import task from '../models/TaskModel.js';
+import { user } from '../models/UserModel.js';
 
 class TaskController {
     static async getTask(req, res) {
@@ -16,10 +17,25 @@ class TaskController {
         }
     };
 
-    static async criarTask(req, res) {
+    static async getTaskByUser(req, res) {
+        const taskUser = req.query.user;
         try {
-            const novaTask = await task.create(req.body);
-            res.status(201).json({ message: "Task criada com sucesso", task: novaTask })
+            const taskByUser = await task.find({ user : taskUser});
+            res.status(200).json(taskByUser);
+        } catch (erro) {
+            res.status(500).json({ message: `${erro.message} - falha na busca de task por id de usuário ` });
+        }
+    }
+
+    static async criarTask(req, res) {
+
+        const novaTask = req.body;
+
+        try {
+            const findedUser = await user.findById(novaTask.user);
+            const taskCompleta = { ...novaTask, user: { ...findedUser._doc }}
+            const taskCriada = await task.create(taskCompleta);
+            res.status(201).json({ message: "Task criada com sucesso", task: taskCriada })
         }
         catch (erro) {
             res.status(500).json({ message: `${erro.message} - falha ao cadastrar Task` })

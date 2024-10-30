@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { taskSchema } from "./TaskModel.js";
 
 const userSchema = new mongoose.Schema({
     id: { type: mongoose.Schema.Types.ObjectId },
@@ -10,4 +9,4 @@ const userSchema = new mongoose.Schema({
 
 const user = mongoose.model('users', userSchema);
 
-export default user;
+export {user, userSchema};
