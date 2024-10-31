@@ -8,6 +8,6 @@ routes.get('/task/user', TaskController.getTaskByUser);
 // routes.get('/task/:id', TaskController.getTaskPorId);
 routes.post('/task', TaskController.criarTask);
 // routes.put('/task/:id', TaskController.atualizarTask);
-routes.delete('/task/:id', TaskController.excluirTask);
+// routes.delete('/task/:id', TaskController.excluirTask);
 
 export default routes;

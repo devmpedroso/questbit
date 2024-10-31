@@ -9,7 +9,7 @@ const taskSchema = new mongoose.Schema({
     startHour: { type: String, required: true },
     endHour: { type: String, required: true },
     completed: { type: Boolean, default: false},
-    user: userSchema
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'users', required: true }
 }, { versionKey: false });
 
 const task = mongoose.model('tasks', taskSchema);

@@ -147,6 +147,11 @@
     max-width: 30%;
 }
 
+.task-card__task-time {
+    color: #667BC6;
+    font-weight: 600;
+}
+
 .menu-bar {
     width: 100%;
     /* height: 24%; */

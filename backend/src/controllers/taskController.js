@@ -18,12 +18,19 @@ class TaskController {
     };
 
     static async getTaskByUser(req, res) {
-        const taskUser = req.query.user;
+        const userId = req.query.userId;  // renomeia para clareza
+        const dayOfWeek = req.query.day; // renomeia para clareza
+    
         try {
-            const taskByUser = await task.find({ user : taskUser});
-            res.status(200).json(taskByUser);
-        } catch (erro) {
-            res.status(500).json({ message: `${erro.message} - falha na busca de task por id de usuário ` });
+            if (!userId || !dayOfWeek) {
+                return res.status(400).json({ message: "Parâmetros 'user' e 'day' são necessários." });
+            }
+    
+            // Busca tasks pelo ID do usuário e dia da semana
+            const tasks = await task.find({ user: userId, dayOfWeek: dayOfWeek });
+            res.status(200).json(tasks);
+        } catch (error) {
+            res.status(500).json({ message: `${error.message} - Falha ao buscar tasks por usuário e dia da semana.` });
         }
     }
 
