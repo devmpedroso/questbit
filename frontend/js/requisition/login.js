@@ -30,6 +30,13 @@ loginForm.addEventListener('submit', async (event) => {
         } else {
             const errorData = await res.json();
             console.error('Erro ao fazer login', errorData.message);
+
+            const loginError = document.getElementById('auth-login');
+            loginError.innerHTML = ''; 
+            const paragraph = document.createElement('p');
+            paragraph.classList.add('sl-paragraph');
+            paragraph.textContent = "Erro ao realizar login. E-mail e/ou senha inválidos!"; // Preenche o título
+            loginError.appendChild(paragraph);
         }
     } catch (error) {
         console.error('Erro na requisição:', error);
