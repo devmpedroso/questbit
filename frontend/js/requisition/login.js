@@ -20,13 +20,8 @@ loginForm.addEventListener('submit', async (event) => {
 
         if (res.ok) {
             const result = await res.json();
-            console.log('Login bem-sucedido', result);
-
-            // Armazena o userId no localStorage
-            localStorage.setItem('userId', result.userId);
-
-            // Redireciona para a página principal
-            window.location.href = 'home.html';
+            localStorage.setItem('userId', result.userId); // Armazena o userId no localStorage
+            window.location.href = 'home.html'; // Redireciona para a página principal
         } else {
             const errorData = await res.json();
             console.error('Erro ao fazer login', errorData.message);
@@ -35,7 +30,7 @@ loginForm.addEventListener('submit', async (event) => {
             loginError.innerHTML = ''; 
             const paragraph = document.createElement('p');
             paragraph.classList.add('sl-paragraph');
-            paragraph.textContent = "Erro ao realizar login. E-mail e/ou senha inválidos!"; // Preenche o título
+            paragraph.textContent = "Erro ao realizar login. E-mail e/ou senha inválidos!";
             loginError.appendChild(paragraph);
         }
     } catch (error) {

@@ -1,0 +1,10 @@
+#popup-container {
+    position: fixed; /* ou absolute, dependendo do seu layout */
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+    background: rgba(0, 0, 0, 0.5); /* fundo semi-transparente */
+    display: none; /* inicializar como oculto */
+    z-index: 1000; /* deve ser maior que o z-index dos outros elementos */
+}

@@ -26,7 +26,7 @@ async function loadTasks() {
         }
 
         const tasks = await response.json(); // Converte a resposta em JSON
-        console.log("Tasks:", tasks);
+        // console.log("Tasks:", tasks);
 
         const taskList = document.getElementById('task-list-home');
         taskList.innerHTML = ''; // Limpa o conteúdo atual

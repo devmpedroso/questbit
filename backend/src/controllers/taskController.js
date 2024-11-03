@@ -23,7 +23,6 @@ class TaskController {
     }
 
     static async criarTask(req, res) {
-
         const novaTask = req.body;
 
         try {
@@ -36,6 +35,26 @@ class TaskController {
             res.status(500).json({ message: `${erro.message} - falha ao cadastrar Task` })
         }
     }
+
+    // static async atualizarTask(req, res) {
+    //     try {
+    //         const id = req.params.id;
+    //         await task.findByIdAndUpdate(id, req.body);
+    //         res.status(200).json({ message: "task atualizado" });
+    //     } catch (erro) {
+    //         res.status(500).json({ message: `${erro.message} - falha ao cadastrar Task` });
+    //     }
+    // }
+
+    // static async excluirTask(req, res) {
+    //     try {
+    //         const id = req.params.id;
+    //         await task.findByIdAndDelete(id);
+    //         res.status(200).json({ message: "Task excluído com sucesso" });
+    //     } catch (erro) {
+    //         res.status(500).json({ message: `${erro.message} - falha ao cadastrar Task` });
+    //     }
+    // }
 }
 
 // exportando para que possamos usar na aplicação inteira
