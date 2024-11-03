@@ -9,7 +9,7 @@ const eventSchema = new mongoose.Schema({
     startHour: { type: Number, required: true },
     endHour: { type: Number, required: true },
     completed: { type: Boolean, required: false },
-    user: userSchema
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'users', required: true }
 }, { versionKey: false });
 
 const event = mongoose.model('events', eventSchema);
