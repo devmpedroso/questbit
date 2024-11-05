@@ -1,10 +1,82 @@
 #popup-container {
-    position: fixed; /* ou absolute, dependendo do seu layout */
-    top: 0;
-    left: 0;
-    width: 90%;
-    height: 90%;
-    background: rgba(0, 0, 0, 0.5); /* fundo semi-transparente */
-    display: none; /* inicializar como oculto */
-    z-index: 1000; /* deve ser maior que o z-index dos outros elementos */
+    position: fixed; 
+    top: 12.5%;
+    left: 4%;
+    width: 85%;
+    height: 70%;
+    padding: 12px;
+    border: 1px solid #667BC6;
+    border-radius: 24px;
+    box-shadow: 1px 1px 120px;
+    background-color: #fff;
+    display: none; 
+    z-index: 1000;
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-container-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#task-edit-form {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-content-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-left: 28%;
+}
+
+.popup-actions {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.popup-btn {
+    font-size: 16px;
+    font-family: Poppins;
+    padding: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border: none;
+    border-radius: 16px;
+    background-color: #fff;
+}
+
+.save-btn {
+    background-color: #6DD478;
+}
+
+.delete-btn {
+    background-color: #D46D6D;
+}
+
+.close-btn {
+    font-size: 16px;
+    font-family: Poppins;
+    padding: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border: 1px solid #667BC6;
+    border-radius: 16px;
+    background-color: #fff;
+}
+
+.close-btn:hover {
+    color: #fff;
+    background-color: #667BC6;
 }
