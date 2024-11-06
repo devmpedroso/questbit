@@ -1,15 +1,12 @@
 const userId = localStorage.getItem('userId'); // Obtém o userId do localStorage
+const userName = localStorage.getItem('userName');
 const diaDaSemana = getDiaDaSemana(); // Obtém o dia da semana atual
 // const diaDaSemana = "monday"; // o dia da semana tem que ser em inglês (que novidade essa bomba)
 
-console.log("User ID:", userId);
-console.log("Dia da Semana:", diaDaSemana);
-
 const apiUrl = `http://localhost:3000/task/user?userId=${userId}&day=${diaDaSemana}`;
-console.log("API URL:", apiUrl);
 
 function getDiaDaSemana() {
-    const diasDaSemana = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']; //atualizei os dias aqui para inglês
+    const diasDaSemana = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']; 
     const dataAtual = new Date();
     const diaIndex = dataAtual.getDay(); // Obtém o número do dia da semana
     return diasDaSemana[diaIndex]; 
@@ -51,10 +48,35 @@ async function loadTasks() {
             taskLi.appendChild(title);
             taskLi.appendChild(time);
             taskList.appendChild(taskLi); // Adiciona a tarefa à lista
+
+            loadWelcome();
         });
     } catch (error) {
         console.error("Erro:", error);
     }
+}
+
+function loadWelcome() {
+    const welcome = document.getElementById('h_name-date');
+    const presentDate = new Date;
+    const day = presentDate.getDate();
+    const month = presentDate.getMonth();
+
+    const name = document.createElement('p');
+    name.classList.add('h-welcome')
+    name.textContent = userName;
+
+    const weekday = document.createElement('p');
+    weekday.textContent = getDiaDaSemana();
+
+    const dayMonth = document.createElement('p');
+    dayMonth.textContent = day + '/' + (month + 1);
+
+    welcome.appendChild(name);
+    welcome.appendChild(weekday);
+    welcome.appendChild(dayMonth);
+    
+    console.log('Welcome carregado com sucesso');
 }
 
 // Carrega as tarefas assim que a página é aberta

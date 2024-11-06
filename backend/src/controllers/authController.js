@@ -15,11 +15,11 @@ class AuthController {
 
             // Verifica se a senha é válida
             if (password !== usuario.password) {
-                return res.status(401).json({ message: 'Email ou senha inválidos' });
+                return res.status(401).json({ message: 'Email e/ou senha inválidos' });
             }
 
             // Envia apenas o ID do usuário na resposta
-            res.status(200).json({ message: 'Login bem-sucedido', userId: usuario._id });
+            res.status(200).json({ message: 'Login bem-sucedido', userId: usuario._id, userName: usuario.name });
 
         } catch (erro) {
             res.status(500).json({ message: `${erro.message} - erro ao fazer login` });
