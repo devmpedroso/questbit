@@ -17,7 +17,7 @@ conexao.once('open', () => {
 
 const app = express();
 app.use(cors({
-    origin: 'http://localhost:5500', // Permitir requisições somente dessa origem
+    origin: 'http://localhost:5500', // Permite requisições somente dessa origem
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
     credentials: true // Se precisar enviar cookies ou autenticação
 })); 
