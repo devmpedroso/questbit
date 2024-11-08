@@ -1,4 +1,6 @@
-const userId = localStorage.getItem('userId'); 
+import openTaskEditPopup from "../../interaction/popup.js";
+
+const userId = localStorage.getItem('userId');
 const diaDaSemana = "monday";
 
 const apiUrl = `http://localhost:3000/task/user?userId=${userId}&day=${diaDaSemana}`;
@@ -45,18 +47,6 @@ async function loadTasks() {
         });
     } catch (error) {
     }
-}
-
-function openTaskEditPopup(task) {
-    console.log("Função openTaskEditPopup chamada com a tarefa:", task); // Adicione este log
-    const popupContainer = document.getElementById('popup-container');
-    popupContainer.style.display = 'block'; 
-
-    document.getElementById('task-title-input').value = task.title;
-    document.getElementById('weekday').value = task.dayOfWeek;
-    document.getElementById('task-initial-time-input').value = task.startHour;
-    document.getElementById('task-end-time-input').value = task.endHour;
-    document.getElementById('task-desc-input').value = task.description;
 }
 
 // Carrega as tarefas assim que a página é aberta
