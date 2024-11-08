@@ -19,7 +19,7 @@ class AuthController {
             }
 
             // Envia apenas o ID do usuário na resposta
-            res.status(200).json({ message: 'Login bem-sucedido', userId: usuario._id });
+            res.status(200).json({ message: 'Login bem-sucedido', userId: usuario._id, userName: usuario.name });
 
         } catch (erro) {
             res.status(500).json({ message: `${erro.message} - erro ao fazer login` });

@@ -51,10 +51,35 @@ async function loadTasks() {
             taskLi.appendChild(title);
             taskLi.appendChild(time);
             taskList.appendChild(taskLi); // Adiciona a tarefa à lista
+
+            loadWelcome();
         });
     } catch (error) {
         console.error("Erro:", error);
     }
+}
+
+function loadWelcome() {
+    const welcome = document.getElementById('h_name-date');
+    const presentDate = new Date;
+    const day = presentDate.getDate();
+    const month = presentDate.getMonth();
+
+    const name = document.createElement('p');
+    name.classList.add('h-welcome')
+    name.textContent = userName;
+
+    const weekday = document.createElement('p');
+    weekday.textContent = getDiaDaSemana();
+
+    const dayMonth = document.createElement('p');
+    dayMonth.textContent = day + '/' + (month + 1);
+
+    welcome.appendChild(name);
+    welcome.appendChild(weekday);
+    welcome.appendChild(dayMonth);
+    
+    console.log('Welcome carregado com sucesso');
 }
 
 // Carrega as tarefas assim que a página é aberta

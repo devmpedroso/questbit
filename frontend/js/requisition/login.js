@@ -21,6 +21,7 @@ loginForm.addEventListener('submit', async (event) => {
         if (res.ok) {
             const result = await res.json();
             localStorage.setItem('userId', result.userId); // Armazena o userId no localStorage
+            localStorage.setItem('userName', result.userName);
             window.location.href = 'home.html'; // Redireciona para a página principal
         } else {
             const errorData = await res.json();
