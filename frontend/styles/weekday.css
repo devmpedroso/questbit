@@ -1,0 +1,32 @@
+.c_show-task-weekdays {
+    width: 90%;
+    height: 60%;
+    overflow: hidden;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    position: relative;
+    gap: 20px;
+}
+
+.task-list-weekday {
+    overflow-y: auto;
+    height: 100vh;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;*/
+    align-items: center; 
+    gap: 20px;
+
+    scrollbar-width: none; /* para ocultar a barra de rolagem no Firefox */
+}
+
+.task-list-weekday::-webkit-scrollbar {
+    display: none; /* para ocultar a barra de rolagem no Chrome, Safari e Edge (por que caralhos não colocaram pro firefox tudo no webkit de uma vez???) */
+}

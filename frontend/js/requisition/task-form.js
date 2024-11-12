@@ -31,7 +31,7 @@ form.addEventListener('submit', async (event) => {
         if (res.ok) {
             const result = await res.json();
             console.log('tarefa cadastrada com sucesso: ', result);
-            // window.location.href = 'calendar.html';
+            redirectWeekday();
         } else {
             const errorData = await res.json();
             console.error('Erro ao cadastrar: ', errorData.message);
@@ -39,4 +39,11 @@ form.addEventListener('submit', async (event) => {
     } catch (error) {
         console.error('Erro na requisição: ', error);
     }
+
+    function redirectWeekday() {
+        const weekday = taskData.dayOfWeek;
+        const redirect = weekday + '.html';
+        window.location.href = '../weekdays/' + redirect;
+    }
 });
+

@@ -13,7 +13,7 @@ function openTaskEditPopup(task) {
     document.getElementById('task-desc-input').value = task.description;
 
     document.getElementById('save-button').onclick = () => handleSave(task);
-    document.getElementById('delete-button').onclick = () => handleDelete(task.id);
+    document.getElementById('delete-button').onclick = () => handleDelete(task);
 }
 
 async function handleSave(task) {
@@ -37,7 +37,7 @@ async function handleSave(task) {
     .then(response => {
         if (response.ok) {
             console.log('Tarefa atualizada com sucesso!');
-            closeTaskEditPopup();
+            window.location.href = 'monday.html';
         } else {
             console.error('Erro ao atualizar tarefa.');
         }
@@ -57,26 +57,15 @@ async function handleDelete(task) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(deletedTask),
-    })
-    .then(response => {
+    }).then(response => {
         if (response.ok) {
             console.log('Tarefa excluida com sucesso!');
-            closeTaskEditPopup();
+            window.location.href = 'monday.html';
         } else {
             console.error('Erro ao excluir tarefa.');
         }
-    })
-    .catch(error => console.error('Erro na requisição:', error));
+    }).catch(error => console.error('Erro na requisição:', error));
 }
-
-// document.addEventListener('DOMContentLoaded', (taskId) => {
-//     const deleteBtn = document.getElementById('delete-button');
-//     if (deleteBtn) {
-//         const form = document.getElementById('task-edit-form');
-//         form.setAttribute('method', 'DELETE');
-//         form.submit();
-//     }
-// });
 
 function closeTaskEditPopup() {
     const popupContainer = document.getElementById('popup-container');
