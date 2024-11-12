@@ -1,7 +1,6 @@
 function openTaskEditPopup(task) {
-    
     const popupContainer = document.getElementById('popup-container');
-    popupContainer.style.display = 'block';    
+    popupContainer.style.display = 'block';
 
     const form = document.getElementById('task-edit-form');
     form.setAttribute('action', `http://localhost:3000/task/${task._id}`);
@@ -34,18 +33,18 @@ async function handleSave(task) {
         },
         body: JSON.stringify(updatedTask),
     })
-    .then(response => {
-        if (response.ok) {
-            console.log('Tarefa atualizada com sucesso!');
-            window.location.href = 'monday.html';
-        } else {
-            console.error('Erro ao atualizar tarefa.');
-        }
-    })
-    .catch(error => console.error('Erro na requisição:', error));
+        .then(response => {
+            if (response.ok) {
+                console.log('Tarefa atualizada com sucesso!');
+                const weekday = updatedTask.dayOfWeek;
+                const redirect = weekday + '.html';
+                window.location.href = '../weekdays/' + redirect;
+            } else {
+                console.error('Erro ao atualizar tarefa.');
+            }
+        })
+        .catch(error => console.error('Erro na requisição:', error));
 }
-
-
 
 async function handleDelete(task) {
     // Captura os valores atuais dos campos do formulário
@@ -60,7 +59,9 @@ async function handleDelete(task) {
     }).then(response => {
         if (response.ok) {
             console.log('Tarefa excluida com sucesso!');
-            window.location.href = 'monday.html';
+            const weekday = task.dayOfWeek;
+            const redirect = weekday + '.html';
+            window.location.href = '../weekdays/' + redirect;
         } else {
             console.error('Erro ao excluir tarefa.');
         }

@@ -28,7 +28,8 @@ class TaskController {
             const findedUser = await user.findById(novaTask.user);
             const taskCompleta = { ...novaTask, user: { ...findedUser._doc } }
             const taskCriada = await task.create(taskCompleta);
-            res.status(201).json({ message: "Task criada com sucesso", task: taskCriada })
+            res.status(201).json({ message: "Task criada com sucesso", task: taskCriada });
+            console.log(taskCriada);
         }
         catch (erro) {
             res.status(500).json({ message: `${erro.message} - falha ao cadastrar Task` })

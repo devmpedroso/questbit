@@ -1,5 +1,5 @@
 const userId = localStorage.getItem('userId');
-const diaDaSemana = "tuesday";
+const diaDaSemana = "thursday";
 
 const apiUrl = `http://localhost:3000/task/user?userId=${userId}&day=${diaDaSemana}`;
 
@@ -14,7 +14,7 @@ async function loadTasks() {
 
         const tasks = await response.json();
 
-        const taskList = document.getElementById('tuesday-task-list');
+        const taskList = document.getElementById('thursday-task-list');
         taskList.innerHTML = '';
 
         tasks.forEach((task) => {

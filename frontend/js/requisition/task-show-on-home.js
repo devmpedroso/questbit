@@ -6,7 +6,7 @@ const diaDaSemana = getDiaDaSemana(); // Obtém o dia da semana atual
 const apiUrl = `http://localhost:3000/task/user?userId=${userId}&day=${diaDaSemana}`;
 
 function getDiaDaSemana() {
-    const diasDaSemana = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+    const diasDaSemana = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const dataAtual = new Date();
     const diaIndex = dataAtual.getDay(); // Obtém o número do dia da semana
     return diasDaSemana[diaIndex];

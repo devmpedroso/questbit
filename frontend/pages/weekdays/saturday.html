@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuestBit - Sábado</title>
+
+    <link rel="stylesheet" href="../../styles/styles.css">
+</head>
+
+<body>
+    <div id="popup-container" class="popup-container" style="display: none;">
+        <div class="popup-content">
+
+            <div class="popup-container-header">
+                <h2 class="popup-content-title">Editar Tarefa</h2>
+                <button type="button" id="close-button" class="close-btn">x</button>
+            </div>
+            
+            <form id="task-edit-form" method="PUT" action="http://localhost:3000/task/:id">
+                <label for="task-title-input">Nome da tarefa</label>
+                <input type="text" id="task-title-input" name="task-title" class="task-event-form-input"
+                    placeholder="Ex: Ir ao médico">
+
+                <label for="weekday">Dia da semana</label>
+                <select name="weekday" id="weekday" class="weekday">
+                    <option value="monday">Segunda-feira</option>
+                    <option value="tuesday">Terça-feira</option>
+                    <option value="wednesday">Quarta-feira</option>
+                    <option value="thursday">Quinta-feira</option>
+                    <option value="friday">Sexta-feira</option>
+                    <option value="saturday">Sábado</option>
+                    <option value="sunday">Domingo</option>
+                </select>
+
+                <div class="task-event-time-div">
+                    <div class="hour-container">
+                        <label for="task-initial-time-input">Horário Inicial</label>
+                        <input type="time" id="task-initial-time-input" name="task-initial-time"
+                            class="task-event-form-input">
+                    </div>
+
+                    <div class="hour-container">
+                        <label for="task-end-time-input">Horário Final</label>
+                        <input type="time" id="task-end-time-input" name="task-end-time" class="task-event-form-input">
+                    </div>
+
+                </div>
+
+                    <label for="task-desc-input">Descrição</label>
+                    <textarea type="text" id="task-desc-input" name="task-desc" class="task-event-form-input"
+                        placeholder="Endereço: Rua João Ninguém, 243 - Bahamas. Consulta com o Médico João Alguém.">
+                    </textarea>
+                
+                <div class="popup-actions"> 
+                    <button type="button" id="delete-button" class="popup-btn delete-btn">Excluir</button>
+                    <button type="button" id="save-button" class="popup-btn save-btn">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="calendar-header">
+        <div id="calendar_container">
+            <div id="calendar_container_page-name">
+                <p id="calendar-page-name">Edite a sua tarefa</p>
+            </div>
+
+            <div id="calendar_add-new-event">
+                <a id="new-event-anchor" href="../forms/task-form.html">
+                    <img src="../../assets/calendar-assets/add-event.svg" alt="">
+
+                    <p>Adicione uma tarefa</p>
+                </a>
+            </div>
+        </div>
+
+        <div id="h_photo-circle">
+            <div id="h-circle">
+                <img id="h-photo" src="../../assets/nav-menu-assets/purple-calendar.svg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="c_show-task-weekdays">
+        <p class="global-standard-text" style="text-align: center; margin-top: 5%">Organize a sua rotina: </p>
+
+        <ul id="saturday-task-list" class="task-list-weekday"></ul>
+    </div>
+
+    <nav class="menu-bar">
+        <div class="container-menu-bar">
+            <div class="container-menu-item">
+                <a href="http://localhost:5500/frontend/pages/home.html">
+                    <img src="../../assets/nav-menu-assets/white-home.svg" alt="">
+                </a>
+            </div>
+
+            <div id="container-menu-calendar-item" class="container-menu-item">
+                <a href="http://localhost:5500/frontend/pages/calendar.html">
+                    <img src="../../assets/nav-menu-assets/purple-calendar.svg" alt="">
+                </a>
+            </div>
+
+            <div class="container-menu-item">
+                <a href="http://localhost:5500/frontend/pages/person.html">
+                    <img src="../../assets/nav-menu-assets/white-person.svg" alt="">
+                </a>
+            </div>
+
+            <div class="container-menu-item">
+                <a href="http://localhost:5500/frontend/pages/settings.html">
+                    <img src="../../assets/nav-menu-assets/white-settings.svg" alt="">
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+    <script src="../../js/requisition/check-login.js"></script>
+    <script type="module" src="../../js/requisition/weekdays/saturday.js"></script> 
+    <script src="../../js/interaction/popup.js"></script>
+</body>
+
+</html>
