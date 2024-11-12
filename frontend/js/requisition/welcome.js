@@ -9,7 +9,7 @@ function loadWelcome() {
     name.textContent = userName;
 
     const weekday = document.createElement('p');
-    weekday.textContent = getDiaDaSemana();
+    weekday.textContent = getDiaDaSemana(); //para usar essa função sem importala, estamos usando o escopo global do navegador, carregando o arquivo definidor da função antes deste arquivo aqui na home.
 
     const dayMonth = document.createElement('p');
     dayMonth.textContent = day + '/' + (month + 1);

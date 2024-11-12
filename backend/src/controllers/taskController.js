@@ -9,7 +9,6 @@ class TaskController {
         const dayOfWeek = req.query.day; // pegando parâmetro por url
 
         try {
-            //verifica se ambos os parâmetros estão presentes
             if (!userId || !dayOfWeek) {
                 return res.status(400).json({ message: "Parâmetros 'user' e 'day' são necessários." });
             }
@@ -39,8 +38,12 @@ class TaskController {
     static async atualizarTask(req, res) {
         try {
             const id = req.params.id;
-            await task.findByIdAndUpdate(id, req.body);
+            const update = req.body;
+            await task.findByIdAndUpdate(id, update);
+            
             res.status(200).json({ message: "task atualizado" });
+            console.log(update);
+
         } catch (erro) {
             res.status(500).json({ message: `${erro.message} - falha ao cadastrar Task` });
         }

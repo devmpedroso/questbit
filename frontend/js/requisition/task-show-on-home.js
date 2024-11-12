@@ -6,17 +6,17 @@ const diaDaSemana = getDiaDaSemana(); // Obtém o dia da semana atual
 const apiUrl = `http://localhost:3000/task/user?userId=${userId}&day=${diaDaSemana}`;
 
 function getDiaDaSemana() {
-    const diasDaSemana = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']; 
+    const diasDaSemana = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
     const dataAtual = new Date();
     const diaIndex = dataAtual.getDay(); // Obtém o número do dia da semana
-    return diasDaSemana[diaIndex]; 
+    return diasDaSemana[diaIndex];
 }
 
 async function loadTasks() {
     try {
         const response = await fetch(apiUrl); // Requisição GET
         console.log("Response Status:", response.status);
-        
+
         if (!response.ok) {
             alert('Erro ao buscar tarefas');
             throw new Error('Erro ao buscar tarefas');
@@ -49,14 +49,37 @@ async function loadTasks() {
             taskLi.appendChild(time);
             taskList.appendChild(taskLi); // Adiciona a tarefa à lista
 
-            loadWelcome();
 
-            console.log("verificação após loadWelcome")
         });
+
+        loadWelcome();
+        console.log("verificação após loadWelcome")
     } catch (error) {
         console.error("Erro:", error);
     }
 }
+
+function loadWelcome() {
+    const welcome = document.getElementById('h_name-date');
+    const presentDate = new Date;
+    const day = presentDate.getDate();
+    const month = presentDate.getMonth();
+
+    const name = document.createElement('p');
+    name.classList.add('h-welcome')
+    name.textContent = userName;
+
+    const weekday = document.createElement('p');
+    weekday.textContent = getDiaDaSemana(); //para usar essa função sem importala, estamos usando o escopo global do navegador, carregando o arquivo definidor da função antes deste arquivo aqui na home.
+
+    const dayMonth = document.createElement('p');
+    dayMonth.textContent = day + '/' + (month + 1);
+
+    welcome.appendChild(name);
+    welcome.appendChild(weekday);
+    welcome.appendChild(dayMonth);
+}
+
 
 // Carrega as tarefas assim que a página é aberta
 window.onload = loadTasks;

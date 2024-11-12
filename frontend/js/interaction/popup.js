@@ -1,4 +1,5 @@
 function openTaskEditPopup(task) {
+    
     const popupContainer = document.getElementById('popup-container');
     popupContainer.style.display = 'block';    
 
@@ -11,39 +12,71 @@ function openTaskEditPopup(task) {
     document.getElementById('task-end-time-input').value = task.endHour;
     document.getElementById('task-desc-input').value = task.description;
 
-    document.getElementById('save-button').onclick = () => handleSave(task.id);
-    // document.getElementById('delete-button').onclick = () => handleDelete(task.id);
+    document.getElementById('save-button').onclick = () => handleSave(task);
+    document.getElementById('delete-button').onclick = () => handleDelete(task.id);
 }
 
-function handleSave(taskId) {
-    const form = document.getElementById('task-edit-form');
-    form.setAttribute('action', `http://localhost:3000/task/${task._id}`);
-    form.setAttribute('method', 'PUT');
-    form.submit();
+async function handleSave(task) {
+    // Captura os valores atuais dos campos do formulário
+    const updatedTask = {
+        _id: task._id,
+        title: document.getElementById('task-title-input').value,
+        dayOfWeek: document.getElementById('weekday').value,
+        startHour: document.getElementById('task-initial-time-input').value,
+        endHour: document.getElementById('task-end-time-input').value,
+        description: document.getElementById('task-desc-input').value
+    };
+
+    await fetch(`http://localhost:3000/task/${updatedTask._id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedTask),
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Tarefa atualizada com sucesso!');
+            closeTaskEditPopup();
+        } else {
+            console.error('Erro ao atualizar tarefa.');
+        }
+    })
+    .catch(error => console.error('Erro na requisição:', error));
 }
 
-// function handleDelete(taskId) {
-//     const form = document.getElementById('task-edit-form');
-//     form.setAttribute('action', `http://localhost:3000/task/${task._id}`);
-//     form.setAttribute('method', 'DELETE');
-//     form.submit(); 
-// }
 
-document.addEventListener('DOMContentLoaded', (taskId) => {
-    const deleteBtn = document.getElementsById('delete-button');
-    if (deleteBtn) {
-        const form = document.getElementById('task-edit-form');
-        form.setAttribute('method', 'DELETE');
-        form.submit(); 
-    }
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-    const closeButton = document.getElementById('close-button');
-    if (closeButton) {
-        closeButton.addEventListener('click', closeTaskEditPopup);
-    }
-});
+async function handleDelete(task) {
+    // Captura os valores atuais dos campos do formulário
+    const deletedTask = { _id: task._id };
+
+    await fetch(`http://localhost:3000/task/${deletedTask._id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(deletedTask),
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Tarefa excluida com sucesso!');
+            closeTaskEditPopup();
+        } else {
+            console.error('Erro ao excluir tarefa.');
+        }
+    })
+    .catch(error => console.error('Erro na requisição:', error));
+}
+
+// document.addEventListener('DOMContentLoaded', (taskId) => {
+//     const deleteBtn = document.getElementById('delete-button');
+//     if (deleteBtn) {
+//         const form = document.getElementById('task-edit-form');
+//         form.setAttribute('method', 'DELETE');
+//         form.submit();
+//     }
+// });
 
 function closeTaskEditPopup() {
     const popupContainer = document.getElementById('popup-container');
@@ -53,4 +86,9 @@ function closeTaskEditPopup() {
     }
 }
 
-export default openTaskEditPopup;
+document.addEventListener('DOMContentLoaded', () => {
+    const closeButton = document.getElementById('close-button');
+    if (closeButton) {
+        closeButton.addEventListener('click', closeTaskEditPopup);
+    }
+});

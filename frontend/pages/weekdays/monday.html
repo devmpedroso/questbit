@@ -15,7 +15,7 @@
 
             <div class="popup-container-header">
                 <h2 class="popup-content-title">Editar Tarefa</h2>
-                <button type="button" id="close-button" class="close-btn">X</button>
+                <button type="button" id="close-button" class="close-btn">x</button>
             </div>
             
             
@@ -51,9 +51,10 @@
 
                     <label for="task-desc-input">Descrição</label>
                     <textarea type="text" id="task-desc-input" name="task-desc" class="task-event-form-input"
-                        placeholder="Endereço: Rua João Ninguém, 243 - Bahamas. Consulta com o Médico João Alguém."></textarea>
+                        placeholder="Endereço: Rua João Ninguém, 243 - Bahamas. Consulta com o Médico João Alguém.">
+                    </textarea>
                 
-                <div class="popup-actions">
+                <div class="popup-actions"> 
                     <button type="button" id="delete-button" class="popup-btn delete-btn">Excluir</button>
                     <button type="button" id="save-button" class="popup-btn save-btn">Salvar</button>
                 </div>
@@ -119,7 +120,8 @@
     </nav>
 
     <script src="../../js/requisition/check-login.js"></script>
-    <script type="module" src="../../js/requisition/monday/monday.js"></script>
+    <script type="module" src="../../js/requisition/weekdays/monday.js"></script>
+    <script src="../../js/interaction/popup.js"></script>
 </body>
 
 </html>

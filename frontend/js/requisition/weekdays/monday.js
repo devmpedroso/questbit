@@ -1,5 +1,3 @@
-import openTaskEditPopup from "../../interaction/popup.js";
-
 const userId = localStorage.getItem('userId');
 const diaDaSemana = "monday";
 
@@ -50,4 +48,5 @@ async function loadTasks() {
 }
 
 // Carrega as tarefas assim que a página é aberta
+
 window.onload = loadTasks;
