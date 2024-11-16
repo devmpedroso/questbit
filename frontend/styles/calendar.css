@@ -68,8 +68,15 @@
 }
 
 .title-date-desc__title-date {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
+    width: 80%;
+}
+
+.title-date-desc__title-date__date {
+    font-size: 10px;
+    font-weight: 500;
+    width: 80%;
 }
 
 .title-date-desc__desc {
@@ -79,8 +86,7 @@
 
 .event-container__event__hour__hour {
     color: #667BC6;
-    font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .div-row {
@@ -131,4 +137,14 @@
     color: #667BC6;
     text-decoration: none;
     padding: 5px;
+}
+
+.button-edit-task {
+    border: none;
+    background-color: #fff;
+}
+
+.button-edit-task-img {
+    width: 24px;
+    height: 24px;
 }

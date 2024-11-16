@@ -6,7 +6,7 @@ const diaDaSemana = getDiaDaSemana(); // Obtém o dia da semana atual
 const apiUrl = `http://localhost:3000/task/user?userId=${userId}&day=${diaDaSemana}`;
 
 function getDiaDaSemana() {
-    const diasDaSemana = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const diasDaSemana = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
     const dataAtual = new Date();
     const diaIndex = dataAtual.getDay(); // Obtém o número do dia da semana
     return diasDaSemana[diaIndex];
@@ -24,7 +24,13 @@ async function loadTasks() {
 
         const tasks = await response.json(); // Converte a resposta em JSON
         // console.log("Tasks:", tasks);
+        const reqButton = document.createElement('button');
+        reqButton.textContent = 'E';
+        reqButton.onclick = () => openTaskEditPopup(task);
 
+        // const icon = document.createElement('img');
+        // icon.classList.add('task-card__task-icon');
+        // icon.src = '../../frontend/assets/home-assets/brain.svg';
         const taskList = document.getElementById('task-list-home');
         taskList.innerHTML = ''; // Limpa o conteúdo atual
 

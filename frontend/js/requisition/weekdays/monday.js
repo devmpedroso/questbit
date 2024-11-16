@@ -23,12 +23,12 @@ async function loadTasks() {
             taskLi.classList.add('task-card'); 
 
             const reqButton = document.createElement('button');
-            reqButton.textContent = 'E';
+            const icon = document.createElement('img');
+            reqButton.classList.add('button-edit-task');
+            icon.classList.add('button-edit-task-img');
+            icon.src = '../../../frontend/assets/calendar-assets/escrever.png';
+            reqButton.appendChild(icon);
             reqButton.onclick = () => openTaskEditPopup(task);
-
-            // const icon = document.createElement('img');
-            // icon.classList.add('task-card__task-icon');
-            // icon.src = '../../frontend/assets/home-assets/brain.svg';
 
             const title = document.createElement('p');
             title.classList.add('task-card__task-name');
@@ -38,10 +38,12 @@ async function loadTasks() {
             time.classList.add('task-card__task-time');
             time.textContent = `${task.startHour}`; 
 
+            
             taskLi.appendChild(reqButton);
             taskLi.appendChild(title);
             taskLi.appendChild(time);
             taskList.appendChild(taskLi);
+
         });
     } catch (error) {
     }

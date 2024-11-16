@@ -26,12 +26,14 @@ async function loadEvents() {
             const titleDateDesc = document.createElement('div');
             titleDateDesc.classList.add('event-container__event__title-date-desc');
 
-            const titleDate = document.createElement('p');
-            titleDate.classList.add('title-date-desc__title-date');
-            const loadEventTitle = event.title;
-            const loadEventDate = event.eventDate;
-            const result = loadEventTitle + ' - ' + loadEventDate;
-            titleDate.textContent = result;
+            const title = document.createElement('p');
+            title.classList.add('title-date-desc__title-date');
+            title.textContent = event.title;
+
+            // const eventFullDate = document.createElement('p');
+            // eventFullDate.classList.add('title-date-desc__title-date__date');
+            // eventFullDate = event.eventDate; 
+            // formatDate(eventFullDate);
 
             const desc = document.createElement('p');
             desc.classList.add('title-date-desc__desc');
@@ -41,7 +43,7 @@ async function loadEvents() {
             eventHour.classList.add('event-container__event__hour');
 
             const eventHourHour = document.createElement('span');
-            eventHourHour.classList.add('event-container__event__hour');
+            eventHourHour.classList.add('event-container__event__hour__hour');
             eventHourHour.textContent = `${event.startHour}`;
 
             const row = document.createElement('span');
@@ -49,7 +51,8 @@ async function loadEvents() {
 
             eventMainDiv.appendChild(eventColumn);
             eventColumn.appendChild(titleDateDesc);
-            titleDateDesc.appendChild(titleDate);
+            titleDateDesc.appendChild(title);
+            titleDateDesc.appendChild(eventDate)
             titleDateDesc.appendChild(desc);
             eventColumn.appendChild(eventHour);
             eventHour.appendChild(eventHourHour);
@@ -59,6 +62,15 @@ async function loadEvents() {
         });
     } catch (error) {
     }
+}
+
+function formatDate(dateInput) {
+    const date = new Date(dateInput);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth()).padStart(2, '0');
+    const year = date.getFullYear();
+
+    return `${day}/${month}/${year}`;
 }
 
 // function getDayOfWeek(event) {
