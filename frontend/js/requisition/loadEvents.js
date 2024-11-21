@@ -26,9 +26,11 @@ async function loadEvents() {
             const titleDateDesc = document.createElement('div');
             titleDateDesc.classList.add('event-container__event__title-date-desc');
 
-            const title = document.createElement('p');
-            title.classList.add('title-date-desc__title-date');
-            title.textContent = event.title;
+            const titleDate = document.createElement('p');
+            titleDate.classList.add('title-date-desc__title-date');
+            const title = event.title;
+            const date = event.eventDate;
+            titleDate.textContent = `${title} - ${formatDate(date)}`
 
             // const eventFullDate = document.createElement('p');
             // eventFullDate.classList.add('title-date-desc__title-date__date');
@@ -51,8 +53,7 @@ async function loadEvents() {
 
             eventMainDiv.appendChild(eventColumn);
             eventColumn.appendChild(titleDateDesc);
-            titleDateDesc.appendChild(title);
-            titleDateDesc.appendChild(eventDate)
+            titleDateDesc.appendChild(titleDate);
             titleDateDesc.appendChild(desc);
             eventColumn.appendChild(eventHour);
             eventHour.appendChild(eventHourHour);
@@ -69,6 +70,8 @@ function formatDate(dateInput) {
     const day = String(date.getDate()).padStart(2, '0');
     const month = String(date.getMonth()).padStart(2, '0');
     const year = date.getFullYear();
+
+    //add a if to check if the year is the same to not display the year on the same year
 
     return `${day}/${month}/${year}`;
 }
