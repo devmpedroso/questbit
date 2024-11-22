@@ -11,6 +11,50 @@
 </head>
 
 <body>
+
+    <div id="popup-container" class="popup-container" style="display: none;">
+        <div class="popup-content">
+
+            <div class="popup-container-header">
+                <h2 class="popup-content-title">Editar Evento</h2>
+                <button type="button" id="close-button" class="close-btn">x</button>
+            </div>
+            
+            <form id="event-edit-form" method="PUT" action="http://localhost:3000/event/:id">
+                <label for="event-title-input">Nome do Evento</label>
+                <input type="text" id="event-title-input" name="event-title" class="task-event-form-input"
+                    placeholder="Ex: Ir ao médico">
+
+                <label for="date">Data</label>
+                <input type="date" name="event-date" id="event-date" class="task-event-form-input">
+
+                <div class="task-event-time-div">
+                    <div class="hour-container">
+                        <label for="event-initial-time-input">Horário Inicial</label>
+                        <input type="time" id="event-initial-time-input" name="event-initial-time"
+                            class="task-event-form-input">
+                    </div>
+
+                    <div class="hour-container">
+                        <label for="event-end-time-input">Horário Final</label>
+                        <input type="time" id="event-end-time-input" name="event-end-time" class="task-event-form-input">
+                    </div>
+
+                </div>
+
+                    <label for="event-desc-input">Descrição</label>
+                    <textarea type="text" id="event-desc-input" name="event-desc" class="task-event-form-input"
+                        placeholder="Endereço: Rua João Ninguém, 243 - Bahamas. Consulta com o Médico João Alguém.">
+                    </textarea>
+                
+                <div class="popup-actions"> 
+                    <button type="button" id="delete-button" class="popup-btn delete-btn">Excluir</button>
+                    <button type="button" id="save-button" class="popup-btn save-btn">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Header nome + dia + foto -->
     <div id="calendar-header">
         <div id="calendar_container">
@@ -139,6 +183,7 @@
 
     <script src="../js/requisition/checkLogin.js"></script>
     <script src="../js/requisition/loadEvents.js"></script>
+    <script src="../js/interaction/eventPopup.js"></script>
 </body>
 
 </html>

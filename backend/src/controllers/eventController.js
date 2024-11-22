@@ -34,12 +34,36 @@ class EventController {
 
         try {
             const findedUser = await user.findById(novoEvento.user);
-            const eventCompleto = { ...novoEvento, user: { ...findedUser._doc }}
+            const eventCompleto = { ...novoEvento, user: { ...findedUser._doc }} //nota** uso do spread operator
             const eventCriado = await event.create(eventCompleto);
             res.status(201).json({ message: "Event criado com sucesso", event: eventCriado })
         }
         catch (erro) {
             res.status(500).json({ message: `${erro.message} - falha na requisição do event` })
+        }
+    }
+
+    static async atualizarEvent(req, res) {
+        try {
+            const id = req.params.id;
+            const update = req.body;
+            await event.findByIdAndUpdate(id, update);
+            
+            res.status(200).json({ message: "event atualizado" });
+            console.log(update);
+
+        } catch (erro) {
+            res.status(500).json({ message: `${erro.message} - falha ao atualizar evento` });
+        }
+    }
+
+    static async excluirEvent(req, res) {
+        try {
+            const id = req.params.id;
+            await event.findByIdAndDelete(id);
+            res.status(200).json({ message: "Evento excluído com sucesso" });
+        } catch (erro) {
+            res.status(500).json({ message: `${erro.message} - falha ao excluir evento` });
         }
     }
 }

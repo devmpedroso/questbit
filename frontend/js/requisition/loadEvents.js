@@ -22,6 +22,7 @@ async function loadEvents() {
 
             const eventColumn = document.createElement('div');
             eventColumn.classList.add('event-container__event__column');
+            eventColumn.onclick = () => openEventEditPopup(event);
 
             const titleDateDesc = document.createElement('div');
             titleDateDesc.classList.add('event-container__event__title-date-desc');
