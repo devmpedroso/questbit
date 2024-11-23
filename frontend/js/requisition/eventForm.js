@@ -33,6 +33,7 @@ form.addEventListener('submit', async (event) => {
         if (res.ok) {
             const result = await res.json();
             console.log('evento cadastrado com sucesso: ', result);
+            window.location.href = "../calendar.html";
         } else {
             const errorData = await res.json();
             console.error('Erro ao cadastrar: ', errorData.message);

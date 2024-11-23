@@ -5,6 +5,8 @@
     display: flex;
     justify-content: space-between;
     padding: 48px;
+    padding-left: 24px;
+    padding-right: 24px;
     background-color: #667BC6;
     border-radius: 0px 0px 16px 16px;
 }
@@ -17,8 +19,16 @@
 
 #calendar-page-name {
     color: white;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 900;
+}
+
+#calendar_add-new-event {
+    width: 100% !important;
+}
+
+#add-event-text {
+    font-size: 16px;
 }
 
 #new-event-anchor {

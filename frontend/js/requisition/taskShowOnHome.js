@@ -73,7 +73,7 @@ function loadWelcome() {
 
     const name = document.createElement('p');
     name.classList.add('h-welcome')
-    name.textContent = userName;
+    name.textContent = `Olá, ${userName}!`;
 
     const weekday = document.createElement('p');
     weekday.textContent = getDiaDaSemana(); //para usar essa função sem importala, estamos usando o escopo global do navegador, carregando o arquivo definidor da função antes deste arquivo aqui na home.
