@@ -14,7 +14,8 @@ class TaskController {
             }
 
             // Busca tasks pelo ID do usuário e dia da semana
-            const tasks = await task.find({ user: userId, dayOfWeek: dayOfWeek });
+            const tasks = await task.find({ user: userId, dayOfWeek: dayOfWeek }).sort({startHour: 1});
+
             res.status(200).json(tasks);
         } catch (error) {
             res.status(500).json({ message: `${error.message} - Falha ao buscar tasks por usuário e dia da semana.` });

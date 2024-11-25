@@ -5,6 +5,8 @@ const diaDaSemana = getDiaDaSemana(); // Obtém o dia da semana atual
 
 const apiUrl = `http://localhost:3000/task/user?userId=${userId}&day=${diaDaSemana}`;
 
+//Carrega as tasks e o welcome (Saudação + nome + dia da semana + data)
+
 function getDiaDaSemana() {
     const diasDaSemana = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
     const dataAtual = new Date();
@@ -23,25 +25,14 @@ async function loadTasks() {
         }
 
         const tasks = await response.json(); // Converte a resposta em JSON
-        // console.log("Tasks:", tasks);
-        const reqButton = document.createElement('button');
-        reqButton.textContent = 'E';
-        reqButton.onclick = () => openTaskEditPopup(task);
 
-        // const icon = document.createElement('img');
-        // icon.classList.add('task-card__task-icon');
-        // icon.src = '../../frontend/assets/home-assets/brain.svg';
         const taskList = document.getElementById('task-list-home');
         taskList.innerHTML = ''; // Limpa o conteúdo atual
 
         // Itera sobre as tasks e cria os elementos HTML dinamicamente
-        tasks.forEach((task) => {
+        tasks.forEach((task, index) => {
             const taskLi = document.createElement('li');
             taskLi.classList.add('task-card'); // Aplica classe CSS
-
-            // const icon = document.createElement('img');
-            // icon.classList.add('task-card__task-icon');
-            // icon.src = '../../frontend/assets/home-assets/brain.svg';
 
             const title = document.createElement('p');
             title.classList.add('task-card__task-name');
@@ -55,11 +46,11 @@ async function loadTasks() {
             taskLi.appendChild(time);
             taskList.appendChild(taskLi); // Adiciona a tarefa à lista
 
-
+            actionTime(task, index)
         });
 
         loadWelcome();
-        console.log("verificação após loadWelcome")
+        console.log("Scripts: loadWelcome() e actionTime() carregados com sucesso.")
     } catch (error) {
         console.error("Erro:", error);
     }
@@ -72,19 +63,64 @@ function loadWelcome() {
     const month = presentDate.getMonth();
 
     const name = document.createElement('p');
-    name.classList.add('h-welcome')
+    name.classList.add('h-welcome');
     name.textContent = `Olá, ${userName}!`;
 
     const weekday = document.createElement('p');
-    weekday.textContent = getDiaDaSemana(); //para usar essa função sem importala, estamos usando o escopo global do navegador, carregando o arquivo definidor da função antes deste arquivo aqui na home.
+    weekday.textContent = translatedDay(); //para usar essa função sem importala, estamos usando o escopo global do navegador, carregando o arquivo definidor da função antes deste arquivo aqui na home.
 
     const dayMonth = document.createElement('p');
-    dayMonth.textContent = day + '/' + (month + 1);
+    dayMonth.textContent = day + '/' + (month + 1); // os meses são um array de 0 a 11, por isso +1 pra fechar 12 no frontend
 
     welcome.appendChild(name);
     welcome.appendChild(weekday);
     welcome.appendChild(dayMonth);
 }
+
+function translatedDay() {
+    const day = getDiaDaSemana();
+    if (day === 'monday') { return 'Segunda-feira'; }
+    if (day === 'tuesday') { return 'Terça-feira'; }
+    if (day === 'wednesday') { return 'Quarta-feira'; }
+    if (day === 'thursday') { return 'Quinta-feira'; }
+    if (day === 'friday') { return 'Sexta-feira'; }
+    if (day === 'saturday') { return 'Sábado'; }
+    if (day === 'sunday') { return 'Domingo'; }
+}
+
+function actionTime(task) {
+console.log(task);
+console.log("StartHour original:", task.startHour);
+console.log("EndHour original:", task.endHour);
+
+    let hour = new Date();
+    let time = hour.getTime();  // Obtém o timestamp da hora atual
+    console.log("Hora atual:", time);
+
+    const background = document.getElementsByClassName('task-card')[0];  // Assumindo que você quer o primeiro elemento
+   
+    // Converte as horas de startHour e endHour para timestamps também
+    const startHour = new Date(task.startHour).getHours();
+    const endHour = new Date(task.endHour).getHours();
+    console.log("StartHour:", startHour, "EndHour:", endHour);
+
+    // Verifica se a hora atual está dentro do intervalo de tempo
+    if (startHour <= hour && hour <= endHour) {
+        background.style.setProperty('background-color', '#6DD478', 'important');  // Dentro do horário de ação
+        console.log("Cor verde aplicada (dentro do horário)");
+    } 
+    // Verifica se a hora atual já passou do horário de ação
+    else if (hour > endHour) {
+        background.style.setProperty('background-color', '#D46D6D', 'important');  // Passado do horário de ação
+        console.log("Cor vermelha aplicada (fora do horário)");
+    } 
+    // Verifica se a hora atual está antes do horário de ação
+    else {
+        background.style.setProperty('background-color', '#FFFFFF', 'important');  // Fora do horário de ação
+        console.log("Cor branca aplicada (antes do horário)");
+    }
+}
+
 
 
 // Carrega as tarefas assim que a página é aberta
