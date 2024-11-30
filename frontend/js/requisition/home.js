@@ -46,7 +46,7 @@ async function loadTasks() {
             taskLi.appendChild(time);
             taskList.appendChild(taskLi); // Adiciona a tarefa à lista
 
-            actionTime(task, index)
+            // actionTime(task, index)
         });
 
         loadWelcome();
@@ -88,38 +88,38 @@ function translatedDay() {
     if (day === 'sunday') { return 'Domingo'; }
 }
 
-function actionTime(task) {
-console.log(task);
-console.log("StartHour original:", task.startHour);
-console.log("EndHour original:", task.endHour);
+// function actionTime(task) {
+// console.log(task);
+// console.log("StartHour original:", task.startHour);
+// console.log("EndHour original:", task.endHour);
 
-    let hour = new Date();
-    let time = hour.getTime();  // Obtém o timestamp da hora atual
-    console.log("Hora atual:", time);
+//     let hour = new Date();
+//     let time = hour.getTime();  // Obtém o timestamp da hora atual
+//     console.log("Hora atual:", time);
 
-    const background = document.getElementsByClassName('task-card')[0];  // Assumindo que você quer o primeiro elemento
+//     const background = document.getElementsByClassName('task-card')[0];  // Assumindo que você quer o primeiro elemento
    
-    // Converte as horas de startHour e endHour para timestamps também
-    const startHour = new Date(task.startHour).getHours();
-    const endHour = new Date(task.endHour).getHours();
-    console.log("StartHour:", startHour, "EndHour:", endHour);
+//     // Converte as horas de startHour e endHour para timestamps também
+//     const startHour = new Date(task.startHour).getHours();
+//     const endHour = new Date(task.endHour).getHours();
+//     console.log("StartHour:", startHour, "EndHour:", endHour);
 
-    // Verifica se a hora atual está dentro do intervalo de tempo
-    if (startHour <= hour && hour <= endHour) {
-        background.style.setProperty('background-color', '#6DD478', 'important');  // Dentro do horário de ação
-        console.log("Cor verde aplicada (dentro do horário)");
-    } 
-    // Verifica se a hora atual já passou do horário de ação
-    else if (hour > endHour) {
-        background.style.setProperty('background-color', '#D46D6D', 'important');  // Passado do horário de ação
-        console.log("Cor vermelha aplicada (fora do horário)");
-    } 
-    // Verifica se a hora atual está antes do horário de ação
-    else {
-        background.style.setProperty('background-color', '#FFFFFF', 'important');  // Fora do horário de ação
-        console.log("Cor branca aplicada (antes do horário)");
-    }
-}
+//     // Verifica se a hora atual está dentro do intervalo de tempo
+//     if (startHour <= hour && hour <= endHour) {
+//         background.style.setProperty('background-color', '#6DD478', 'important');  // Dentro do horário de ação
+//         console.log("Cor verde aplicada (dentro do horário)");
+//     } 
+//     // Verifica se a hora atual já passou do horário de ação
+//     else if (hour > endHour) {
+//         background.style.setProperty('background-color', '#D46D6D', 'important');  // Passado do horário de ação
+//         console.log("Cor vermelha aplicada (fora do horário)");
+//     } 
+//     // Verifica se a hora atual está antes do horário de ação
+//     else {
+//         background.style.setProperty('background-color', '#FFFFFF', 'important');  // Fora do horário de ação
+//         console.log("Cor branca aplicada (antes do horário)");
+//     }
+// }
 
 
 
