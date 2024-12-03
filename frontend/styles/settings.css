@@ -1,0 +1,63 @@
+#h-settings {
+    /* width: 100%; */
+    /* position: fixed; fixa a nossa saudação + foto de perfil */
+    height: 4.3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    background-color: #667BC6;
+    border-radius: 0px 0px 16px 16px;
+    color: white;
+    font-weight: 300;
+}
+
+#settings-options {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 12px;
+}
+
+.setting-button {
+    border: none;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 12px;
+
+    color: #2d2d2d;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.settings-icons {
+    width: 24px;
+    height: 24px;
+}
+
+#delete-account-icon {
+    width: 32px;
+    height: 32px;
+}
+
+#delete-account-text {
+    margin-left: -8px;
+}
+
+
+#delete-account-button-line {
+    background-color: #D46D6D70;
+}
+
+#delete-account-button {
+    color: #D46D6D;
+}
+
+.settings-options-line {
+    width: 100%;
+    height: 1px;
+    background-color: #667BC650;
+}

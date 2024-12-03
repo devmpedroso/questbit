@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuestBit - Settings</title>
+
+    <link rel="icon" href="../assets/app-icon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <div id="h-settings">
+        <p>Procurando o que nas configurações? 👀</p>
+    </div>
+
+    <div id="settings-options">
+        <button class="setting-button">
+            <img class="settings-icons" src="../assets/settings-assets/dark-mode.svg" alt="">
+            <p>Modo noturno</p>
+        </button>
+
+        <div class="settings-options-line"></div>
+
+        <button id="logout-account-button" class="setting-button">
+            <img class="settings-icons" src="../assets/settings-assets/logout.svg" alt="">
+            <p>Sair da conta</p>
+        </button>
+
+        <div id="delete-account-button-line" class="settings-options-line"></div>
+        
+        <button id="delete-account-button" class="setting-button">
+            <img id="delete-account-icon" class="settings-icons" src="../assets/settings-assets/delete-account.svg" alt="">
+            <p id="delete-account-text">Excluir conta e apagar meus dados</p>
+        </button>
+    </div>
+
+    <nav class="menu-bar">
+        <div class="container-menu-bar">
+            <div id="container-menu-home-item" class="container-menu-item">
+                <a href="http://localhost:5500/frontend/pages/home.html">
+                    <img src="../assets/nav-menu-assets/purple-home.svg" alt="">
+                </a>
+            </div>
+
+            <div class="container-menu-item">
+                <a href="http://localhost:5500/frontend/pages/calendar.html">
+                    <img src="../assets/nav-menu-assets/white-calendar.svg" alt="">
+                </a>
+            </div>
+
+            <div class="container-menu-item">
+                <a href="http://localhost:5500/frontend/pages/person.html">
+                    <img src="../assets/nav-menu-assets/white-data.svg" alt="">
+                </a>
+            </div>
+
+            <div class="container-menu-item">
+                <a href="http://localhost:5500/frontend/pages/settings.html">
+                    <img src="../assets/nav-menu-assets/white-settings.svg" alt="">
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+    <script src="../js/requisition/checkLogin.js"></script>
+    <script src="../js/requisition/logout.js"></script>
+</body>
+</html>

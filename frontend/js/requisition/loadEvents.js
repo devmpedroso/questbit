@@ -7,7 +7,7 @@ async function loadEvents() {
         const response = await fetch(apiUrl);
 
         if (!response.ok) {
-            alert('Erro ao buscar eventos');
+            console.log('Erro ao buscar eventos');
             throw new Error('Erro ao buscar eventos');
         }
 
