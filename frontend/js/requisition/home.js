@@ -30,9 +30,17 @@ async function loadTasks() {
         taskList.innerHTML = ''; // Limpa o conteúdo atual
 
         // Itera sobre as tasks e cria os elementos HTML dinamicamente
-        tasks.forEach((task, index) => {
+        tasks.forEach((task) => {
             const taskLi = document.createElement('li');
             taskLi.classList.add('task-card'); // Aplica classe CSS
+            taskLi.id = `task-${task._id}`;
+            const reqButton = document.createElement('button');
+            const icon = document.createElement('img');
+            reqButton.classList.add('button-edit-task'); //button css
+            icon.classList.add('button-edit-task-img'); //icon css
+            icon.src = '../../../frontend/assets/home-assets/checked.png';
+            reqButton.appendChild(icon);
+            reqButton.onclick = () => openTaskEditPopup(task);
 
             const title = document.createElement('p');
             title.classList.add('task-card__task-name');
@@ -42,6 +50,7 @@ async function loadTasks() {
             time.classList.add('task-card__task-time');
             time.textContent = `${task.startHour}`; // Preenche o horário
 
+            taskLi.appendChild(reqButton);
             taskLi.appendChild(title);
             taskLi.appendChild(time);
             taskList.appendChild(taskLi); // Adiciona a tarefa à lista
