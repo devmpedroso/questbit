@@ -19,7 +19,9 @@ node -v (para verificar a instalação do node)
 npm -v (para verificar a instalação do npm)
 
 Após a configuração do ambiente, podemos rodar o comando git clone para clonar o reposítório para dentro da nossa máquina:
-comando: https://github.com/devmpedroso/questbit.git
+comando: git clone https://github.com/devmpedroso/questbit.git
+
+Caso não possua o git instalado, é possível obter o projeto em zip. Basta ir em code, dentro do projeto no Github, e escolher tal opção.
 
 ! CUIDADO AO CLONAR O SISTEMA DENTRO DE OUTRA PASTA !
 Caso crie uma pasta na área de trabalho para clonar o repositório dentro da mesma, deve-se tomar cuidado, pois as pastas BACKEND e FRONTEND devem ficar na raiz de uma única pasta, por se tratar da estrutura da aplicação.
