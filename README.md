@@ -65,3 +65,9 @@ Caso você seja direcionado para a tela com os diretórios, basta clicar e naveg
 frontend > pages > signup.html
 
 Essa é a página de cadastro, onde você pode começar a análise da aplicação.
+
+== FUNCIONALIDADES QUE NÃO ESTÃO IMPLEMENTADOS ==
+
+- A página de data (que possue a seta como icon) não deve der acessada. Caso seja, basta retornar.
+
+- o gráfico de indicação de tarefas completas 
